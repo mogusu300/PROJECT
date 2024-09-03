@@ -47,6 +47,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_officer = models.BooleanField(default=False)  # Custom field for passport officers
     date_joined = models.DateTimeField(default=timezone.now)
+    email_verified = models.BooleanField(default=False)
 
     objects = CustomUserManager()
 
