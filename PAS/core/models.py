@@ -98,7 +98,7 @@ class PassportApplication(models.Model):
     other_names = models.CharField(max_length=200, default="hey")
     age_at_last_birthday = models.IntegerField(default=16)
     date_of_birth = models.DateField()
-    place_of_birth = models.CharField(max_length=100)
+    place_of_birth = models.CharField(max_length=100,default="unknown")
     country_of_birth = CountryField(default="Zambia")
     marital_status = models.CharField(max_length=50, choices=[('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced')])
     maiden_surname = models.CharField(max_length=100, blank=True, null=True)
