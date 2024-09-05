@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.core.validators import validate_email
 from .models import CustomUser
-
+from .forms import PassportApplicationForm
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, validators=[validate_email])
 
@@ -94,3 +94,15 @@ def staff_required(login_url=None):
         return _wrapped_view
     return decorator
 
+def apply_for_passport(request):
+    if request.method == 'POST':
+        form = PassportApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = PassportApplicationForm()
+    return render(request, 'application_form.html', {'form': form})
+
+def success(request):
+    return render(request, 'success.html')

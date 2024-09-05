@@ -11,6 +11,7 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('dashboard/', dashboard, name='dashboard'),
     path('staff/dashboard/', staff_dashboard, name='staff_dashboard'),
+    path('apply_for_passport/',apply_for_passport,name='apply_for_passport'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 ]
 

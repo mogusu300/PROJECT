@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passport Application Form</title>
+    <style>
+        .form-container {
+            max-width: 750px;
+            margin: 0 auto;   
+            padding: 20px;    
+            background-color: #f9f9f9; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        legend {
+            font-weight: bold;
+            color: #0056b3;
+            padding: 0 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+                /* Style for the submit button */
+        .form-container button[type="submit"] {
+            display: block; /* Ensure it’s a block-level element to control width */
+            width: 100%;     /* Set to 100% of the form-container width */
+            max-width: 150px; /* Adjust the max-width as needed */
+            margin: 20px auto; /* Center the button horizontally with some margin */
+            padding: 10px;    /* Add padding for better appearance */
+            background-color: #007bff; /* Button background color */
+            color: white;     /* Text color */
+            border: none;     /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;  /* Change cursor to pointer on hover */
+            font-size: 16px;  /* Adjust font size */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        /* Change background color on hover */
+        .form-container button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Passport Application Form</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Personal Details Section -->
+            <fieldset>
+                <legend>Personal Details</legend>
+                {{ form.surname.label_tag }}
+                {{ form.surname }}
+                {% if form.surname.errors %}
+                    <div class="error">{{ form.surname.errors }}</div>
+                {% endif %}
+
+                {{ form.other_names.label_tag }}
+                {{ form.other_names }}
+                {% if form.other_names.errors %}
+                    <div class="error">{{ form.other_names.errors }}</div>
+                {% endif %}
+
+                {{ form.age_at_last_birthday.label_tag }}
+                {{ form.age_at_last_birthday }}
+                {% if form.age_at_last_birthday.errors %}
+                    <div class="error">{{ form.age_at_last_birthday.errors }}</div>
+                {% endif %}
+
+                {{ form.date_of_birth.label_tag }}
+                {{ form.date_of_birth }}
+                {% if form.date_of_birth.errors %}
+                    <div class="error">{{ form.date_of_birth.errors }}</div>
+                {% endif %}
+
+                {{ form.place_of_birth.label_tag }}
+                {{ form.place_of_birth}}
+                {% if form.place_of_birth.errors %}
+                    <div class="error">{{ form.place_of_birth.errors }}</div>
+                {% endif %}
+
+                {{ form.country_of_birth.label_tag }}
+                {{ form.country_of_birth}}
+                {% if form.country_of_birth.errors %}
+                    <div class="error">{{ form.country_of_birth.errors }}</div>
+                {% endif %}
+
+                {{ form.marital_status.label_tag }}
+                {{ form.marital_status}}
+                {% if form.marital_status.errors %}
+                    <div class="error">{{ form.marital_status.errors }}</div>
+                {% endif %}
+
+                {{ form.maiden_surname.label_tag }}
+                {{ form.maiden_surname}}
+                {% if form.place_of_birth.errors %}
+                    <div class="error">{{ form.maiden_surname.errors }}</div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="{{ form.name_changed.id_for_label }}">{{ form.name_changed.label }}</label>
+                    {{ form.name_changed }}
+                    {% if form.name_changed.errors %}
+                        <div class="error">{{ form.name_changed.errors }}</div>
+                    {% endif %}
+                </div>
+            
+                <div class="form-group" id="original-name-group" style="display: none;">
+                    <label for="{{ form.original_name.id_for_label }}">{{ form.original_name.label }}</label>
+                    {{ form.original_name }}
+                    {% if form.original_name.errors %}
+                        <div class="error">{{ form.original_name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                {{ form.personal_address.label_tag }}
+                {{ form.personal_address}}
+                {% if form.personal_address.errors %}
+                    <div class="error">{{ form.personal_address.errors }}</div>
+                {% endif %}
+
+                {{ form.usual_place_of_residence.label_tag }}
+                {{ form.usual_place_of_residence}}
+                {% if form.place_of_birth.errors %}
+                    <div class="error">{{ form.usual_place_of_residence.errors }}</div>
+                {% endif %}
+
+                {{ form.place_of_birth_parent.label_tag }}
+                {{ form.place_of_birth_parent}}
+                {% if form.place_of_birth_parent.errors %}
+                    <div class="error">{{ form.place_of_birth_parent.errors }}</div>
+                {% endif %}
+
+                {{ form.country_of_birth_parent.label_tag }}
+                {{ form.country_of_birth}}
+                {% if form.country_of_birth.errors %}
+                    <div class="error">{{ form.country_of_birth.errors }}</div>
+                {% endif %}
+
+                {{ form.national_status_of_parent.label_tag }}
+                {{ form.national_status_of_parent}}
+                {% if form.national_status_of_parent.errors %}
+                    <div class="error">{{ form.national_status_of_parent.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <!-- Personal Description Section -->
+            <fieldset>
+                <legend>Personal Description</legend>
+                {{ form.profession_or_occupation.label_tag }}
+                {{ form.profession_or_occupation }}
+                {% if form.profession_or_occupation.errors %}
+                    <div class="error">{{ form.profession_or_occupation.errors }}</div>
+                {% endif %}
+
+                {{ form.residence_country.label_tag }}
+                {{ form.residence_country }}
+                {% if form.residence_country.errors %}
+                    <div class="error">{{ form.residence_country.errors }}</div>
+                {% endif %}
+
+                {{ form.height.label_tag }}
+                {{ form.height }}
+                {% if form.height.errors %}
+                    <div class="error">{{ form.height.errors }}</div>
+                {% endif %}
+
+                {{ form.color_of_eyes.label_tag }}
+                {{ form.color_of_eyes }}
+                {% if form.color_of_eyes.errors %}
+                    <div class="error">{{ form.color_of_eyes.errors }}</div>
+                {% endif %}
+
+                {{ form.color_of_hair.label_tag }}
+                {{ form.color_of_hair }}
+                {% if form.color_of_hair.errors %}
+                    <div class="error">{{ form.color_of_hair.errors }}</div>
+                {% endif %}
+
+                {{ form.special_peculiarities.label_tag }}
+                {{ form.special_peculiarities }}
+                {% if form.special_peculiarities.errors %}
+                    <div class="error">{{ form.special_peculiarities.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <!-- Contact Information Section -->
+            <fieldset>
+                <legend>Contact Information</legend>
+                {{ form.residential_address.label_tag }}
+                {{ form.residential_address }}
+                {% if form.residential_address.errors %}
+                    <div class="error">{{ form.residential_address.errors }}</div>
+                {% endif %}
+
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                {% endif %}
+
+                {{ form.phone_number.label_tag }}
+                {{ form.phone_number }}
+                {% if form.phone_number.errors %}
+                    <div class="error">{{ form.phone_number.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <!-- Identification Details Section -->
+            <fieldset>
+                <legend>Identification Details</legend>
+                <p>Please provide either a National ID number or a Driver's License number:</p>
+                {{ form.national_id_number.label_tag }}
+                {{ form.national_id_number }}
+                {% if form.national_id.errors %}
+                    <div class="error">{{ form.national_id.errors }}</div>
+                {% endif %}
+
+                {{ form.drivers_license_number.label_tag }}
+                {{ form.drivers_license_number }}
+                {% if form.drivers_license_number.errors %}
+                    <div class="error">{{ form.drivers_license_number.errors }}</div>
+                {% endif %}
+
+                <p>If you have had a passport before, please provide the details below (optional):</p>
+                {{ form.passport_number.label_tag }}
+                {{ form.passport_number }}
+                {% if form.passport_number.errors %}
+                    <div class="error">{{ form.passport_number.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+
+            <!-- Parent/Guardian Information Section -->
+            <fieldset>
+                <legend>Parent/Guardian Information</legend>
+                {{ form.parent_guardian_name.label_tag }}
+                {{ form.parent_guardian_name }}
+                {% if form.parent_guardian_name.errors %}
+                    <div class="error">{{ form.parent_guardian_name.errors }}</div>
+                {% endif %}
+
+                {{ form.parent_guardian_nationality.label_tag }}
+                {{ form.parent_guardian_nationality }}
+                {% if form.parent_guardian_nationality.errors %}
+                    <div class="error">{{ form.parent_guardian_nationality.errors }}</div>
+                {% endif %}
+
+                {{ form.parent_guardian_birthplace.label_tag }}
+                {{ form.parent_guardian_birthplace }}
+                {% if form.parent_guardian_birthplace.errors %}
+                    <div class="error">{{ form.parent_guardian_birthplace.errors }}</div>
+                {% endif %}
+
+                {{ form.parent_guardian_contact_number.label_tag }}
+                {{ form.parent_guardian_contact_number }}
+                {% if form.parent_guardian_contact_number.errors %}
+                    <div class="error">{{ form.parent_guardian_contact_number.errors }}</div>
+                {% endif %}
+
+                {{ form.parent_guardian_residential_address.label_tag }}
+                {{ form.parent_guardian_residential_address }}
+                {% if form.parent_guardian_residential_address.errors %}
+                    <div class="error">{{ form.parent_guardian_residential_address.errors }}</div>
+                {% endif %}
+
+                {{ form.parent_guardian_relationship.label_tag }}
+                {{ form.parent_guardian_relationship }}
+                {% if form.parent_guardian_relationship.errors %}
+                    <div class="error">{{ form.parent_guardian_relationship.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <!-- Passport Information Section -->
+            <fieldset>
+                <legend>Passport Details</legend>
+            
+                <div class="form-group">
+                    <label for="{{ form.passport_type.id_for_label }}">{{ form.passport_type.label }}</label>
+                    {{ form.passport_type }}
+                    {% if form.passport_type.errors %}
+                        <div class="error">{{ form.passport_type.errors }}</div>
+                    {% endif %}
+                </div>
+            
+                <div class="form-group">
+                    <label for="{{ form.reason_for_passport.id_for_label }}">{{ form.reason_for_passport.label }}</label>
+                    {{ form.reason_for_passport }}
+                    {% if form.reason_for_passport.errors %}
+                        <div class="error">{{ form.reason_for_passport.errors }}</div>
+                    {% endif %}
+                </div>
+            
+                <div class="form-group">
+                    <label for="{{ form.service_type.id_for_label }}">{{ form.service_type.label }}</label>
+                    {{ form.service_type }}
+                    {% if form.service_type.errors %}
+                        <div class="error">{{ form.service_type.errors }}</div>
+                    {% endif %}
+                </div>
+            
+            </fieldset>
+
+            <!-- Proof of Citizenship Section -->
+            <fieldset>
+                <legend>Proof of Citizenship</legend>
+                <p>Please upload your Birth Certificate, Naturalization Certificate, or another document proving your citizenship:</p>
+                {{ form.citizenship_proof }}
+                {% if form.citizenship_proof.errors %}
+                    <div class="error">{{ form.citizenship_proof.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <!-- Photographs Section -->
+            <fieldset>
+                <legend>Photographs</legend>
+                <p>Upload your passport-size photo:</p>
+                {{ form.photograph }}
+                {% if form.photograph.errors %}
+                    <div class="error">{{ form.photograph.errors }}</div>
+                {% endif %}
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to toggle original name field
+        document.getElementById('{{ form.name_changed.id_for_label }}').addEventListener('change', function() {
+            var originalNameGroup = document.getElementById('original-name-group');
+            if (this.checked) {
+                originalNameGroup.style.display = 'block';
+            } else {
+                originalNameGroup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
