@@ -93,30 +93,29 @@ class PassportApplication(models.Model):
         ('live_photo', 'Live Photograph'),
     ]
     
-
     # Personal Details Section
-    surname = models.CharField(max_length=100)
-    other_names = models.CharField(max_length=200)
-    age_at_last_birthday = models.IntegerField()
+    surname = models.CharField(max_length=100, default="unknown")
+    other_names = models.CharField(max_length=200, default="hey")
+    age_at_last_birthday = models.IntegerField(default=16)
     date_of_birth = models.DateField()
-    #place_of_birth = models.CharField(max_length=100)
-    country_of_birth = CountryField()
+    place_of_birth = models.CharField(max_length=100)
+    country_of_birth = CountryField(default="Zambia")
     marital_status = models.CharField(max_length=50, choices=[('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced')])
     maiden_surname = models.CharField(max_length=100, blank=True, null=True)
     name_changed = models.BooleanField(default=False)
     original_name = models.CharField(max_length=100, blank=True, null=True)
-    personal_address = models.CharField(max_length=255)
-    usual_place_of_residence = models.CharField(max_length=255)
-    place_of_birth_parent = models.CharField(max_length=100)
-    # country_of_birth_parent = CountryField()
-    national_status_of_parent = CountryField()
+    personal_address = models.CharField(max_length=255, default="unknown")
+    usual_place_of_residence = models.CharField(max_length=255, default="lusaka")
+    place_of_birth_parent = models.CharField(max_length=100, default="unknown")
+    country_of_birth_parent = CountryField(default="Zambia")
+    national_status_of_parent = CountryField(default="Zambia")
 
     # Personal Description Section
-    profession_or_occupation = models.CharField(max_length=100)
-    residence_country = CountryField()
-    height = models.DecimalField(max_digits=4, decimal_places=2)  # Store height in meters 
-    color_of_eyes = models.CharField(max_length=50)
-    color_of_hair = models.CharField(max_length=50)
+    profession_or_occupation = models.CharField(max_length=100, default="unknown")
+    residence_country = CountryField(default="Zambia")
+    height = models.Decimaheight = models.DecimalField(max_digits=5, decimal_places=2, default=0)  # Store height in meters 
+    color_of_eyes = models.CharField(max_length=50, default="Black")
+    color_of_hair = models.CharField(max_length=50, default="Black")
     special_peculiarities = models.TextField(blank=True, null=True)
     
     # Contact Information
@@ -138,12 +137,11 @@ class PassportApplication(models.Model):
     parent_guardian_relationship = models.CharField(max_length=100, blank=True, null=True)
 
     # Passport Information
-    passport_type = models.CharField(max_length=20, choices=PASSPORT_TYPES)
-    reason_for_passport = models.CharField(max_length=20, choices=REASONS_FOR_PASSPORT)
-    service_type = models.CharField(max_length=20, choices=SERVICES)
+    passport_type = models.CharField(max_length=20, choices=PASSPORT_TYPES, default="Ordinary 32 pages")
+    reason_for_passport = models.CharField(max_length=20, choices=REASONS_FOR_PASSPORT, default="New Passport")
+    service_type = models.CharField(max_length=20, choices=SERVICES, default="Express")
 
     # Proof of Citizenship
-    
     citizenship_proof = models.FileField(upload_to='citizenship_proofs/', blank=True, null=True)
 
     # Photographs
