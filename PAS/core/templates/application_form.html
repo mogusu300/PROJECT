@@ -101,11 +101,6 @@
                     <div class="error">{{ form.date_of_birth.errors }}</div>
                 {% endif %}
 
-                {{ form.place_of_birth.label_tag }}
-                {{ form.place_of_birth}}
-                {% if form.place_of_birth.errors %}
-                    <div class="error">{{ form.place_of_birth.errors }}</div>
-                {% endif %}
 
                 {{ form.country_of_birth.label_tag }}
                 {{ form.country_of_birth}}
@@ -121,10 +116,6 @@
 
                 {{ form.maiden_surname.label_tag }}
                 {{ form.maiden_surname}}
-                {% if form.place_of_birth.errors %}
-                    <div class="error">{{ form.maiden_surname.errors }}</div>
-                {% endif %}
-
                 <div class="form-group">
                     <label for="{{ form.name_changed.id_for_label }}">{{ form.name_changed.label }}</label>
                     {{ form.name_changed }}
@@ -149,22 +140,9 @@
 
                 {{ form.usual_place_of_residence.label_tag }}
                 {{ form.usual_place_of_residence}}
-                {% if form.place_of_birth.errors %}
-                    <div class="error">{{ form.usual_place_of_residence.errors }}</div>
-                {% endif %}
 
-                {{ form.place_of_birth_parent.label_tag }}
-                {{ form.place_of_birth_parent}}
-                {% if form.place_of_birth_parent.errors %}
-                    <div class="error">{{ form.place_of_birth_parent.errors }}</div>
-                {% endif %}
 
-                {{ form.country_of_birth_parent.label_tag }}
-                {{ form.country_of_birth}}
-                {% if form.country_of_birth.errors %}
-                    <div class="error">{{ form.country_of_birth.errors }}</div>
-                {% endif %}
-
+        
                 {{ form.national_status_of_parent.label_tag }}
                 {{ form.national_status_of_parent}}
                 {% if form.national_status_of_parent.errors %}

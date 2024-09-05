@@ -99,7 +99,7 @@ class PassportApplication(models.Model):
     other_names = models.CharField(max_length=200)
     age_at_last_birthday = models.IntegerField()
     date_of_birth = models.DateField()
-    place_of_birth = models.CharField(max_length=100)
+    #place_of_birth = models.CharField(max_length=100)
     country_of_birth = CountryField()
     marital_status = models.CharField(max_length=50, choices=[('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced')])
     maiden_surname = models.CharField(max_length=100, blank=True, null=True)
@@ -108,7 +108,7 @@ class PassportApplication(models.Model):
     personal_address = models.CharField(max_length=255)
     usual_place_of_residence = models.CharField(max_length=255)
     place_of_birth_parent = models.CharField(max_length=100)
-    country_of_birth_parent = CountryField()
+    # country_of_birth_parent = CountryField()
     national_status_of_parent = CountryField()
 
     # Personal Description Section
@@ -143,7 +143,7 @@ class PassportApplication(models.Model):
     service_type = models.CharField(max_length=20, choices=SERVICES)
 
     # Proof of Citizenship
-    citizenship_proof_type = models.CharField(max_length=100)
+    
     citizenship_proof = models.FileField(upload_to='citizenship_proofs/', blank=True, null=True)
 
     # Photographs

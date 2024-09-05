@@ -44,7 +44,7 @@ def login_view(request):
             login(request, user)
             if user.is_staff:
                 return redirect('staff_dashboard')
-            return redirect('dashboard')
+            return redirect('apply_for_passport')
     else:
         form = CustomAuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
@@ -100,8 +100,11 @@ def apply_for_passport(request):
         if form.is_valid():
             form.save()
             return redirect('success')
+        else:
+            print(form.errors)  # Add this to see form validation errors
     else:
         form = PassportApplicationForm()
+
     return render(request, 'application_form.html', {'form': form})
 
 def success(request):

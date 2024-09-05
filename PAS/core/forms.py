@@ -26,7 +26,6 @@ from phonenumber_field.formfields import PhoneNumberField
 
 class PassportApplicationForm(forms.ModelForm):
     phone_number = PhoneNumberField(required=True)
-    emergency_contact_phone = PhoneNumberField(required=True)
     parent_guardian_contact_number = PhoneNumberField(required=True)
 
     date_of_birth = forms.DateField(
