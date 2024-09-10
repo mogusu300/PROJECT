@@ -40,4 +40,8 @@ class PassportApplicationAdmin(admin.ModelAdmin):
 
     display_photo.short_description = 'Photograph'
 
+    # Explicitly allow deletion in admin
+    def has_delete_permission(self, request, obj=None):
+        return True  # Allow deletion
+
 admin.site.register(PassportApplication, PassportApplicationAdmin)
